@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Explore from './pages/Explore';
+import About from './pages/About';
 import Favorites from './pages/Favorites';
 import NotFound from './pages/NotFound';
 import ScrollToTop from './components/ScrollToTop';
@@ -60,6 +61,10 @@ function App() {
           <Route 
             path="/explore" 
             element={<Explore darkMode={darkMode} onPageLoad={handlePageLoad} />} 
+          />
+          <Route 
+            path="/about" 
+            element={<About darkMode={darkMode} onPageLoad={handlePageLoad} />} 
           />
           <Route 
             path="/favorites" 

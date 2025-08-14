@@ -19,6 +19,7 @@ import {
   FaCheckCircle
 } from "react-icons/fa";
 import bgImage from "../assets/vm.jpg";
+import "../styles/animations.css";
 
 export default function Home({ darkMode }) {
   const features = [
@@ -128,8 +129,8 @@ export default function Home({ darkMode }) {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold mb-6 sm:mb-8 leading-tight tracking-tight"
               >
-                <span className="block mb-2 drop-shadow-lg">Discover</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-orange-400 to-red-500 drop-shadow-2xl">
+                <span className="block mb-2 drop-shadow-lg animate-pulse">Discover</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-orange-400 to-red-500 drop-shadow-2xl animate-gradient">
                   Incredible India
                 </span>
               </motion.h1>
@@ -140,9 +141,9 @@ export default function Home({ darkMode }) {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="text-xl sm:text-2xl md:text-3xl mb-8 sm:mb-10 opacity-95 max-w-5xl mx-auto leading-relaxed px-4 font-light drop-shadow-lg"
               >
-                Embark on an extraordinary journey through 100+ iconic landmarks, hidden gems, and cultural treasures.
+                🌟 Embark on an extraordinary journey through <span className="font-bold text-yellow-300">100+ iconic landmarks</span>, hidden gems, and cultural treasures.
                 <span className="block mt-3 text-lg sm:text-xl md:text-2xl opacity-80">
-                  From the majestic Taj Mahal to the serene backwaters of Kerala.
+                  🏛️ From the majestic Taj Mahal to 🌴 the serene backwaters of Kerala.
                 </span>
               </motion.p>
               
@@ -158,11 +159,11 @@ export default function Home({ darkMode }) {
                 >
                   <Link
                     to="/explore"
-                    className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 lg:px-10 py-4 sm:py-5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 rounded-full text-white font-bold text-lg sm:text-xl shadow-2xl hover:shadow-3xl w-full sm:w-auto justify-center backdrop-blur-sm border border-white/20"
+                    className="group inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 lg:px-10 py-4 sm:py-5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 rounded-full text-white font-bold text-lg sm:text-xl shadow-2xl hover:shadow-3xl w-full sm:w-auto justify-center backdrop-blur-sm border border-white/20 animate-glow"
                   >
-                    <FaCompass className="text-xl sm:text-2xl" />
+                    <FaCompass className="text-xl sm:text-2xl group-hover:rotate-180 transition-transform duration-500" />
                     Start Exploring
-                    <FaArrowRight className="text-xl sm:text-2xl" />
+                    <FaArrowRight className="text-xl sm:text-2xl group-hover:translate-x-1 transition-transform duration-300" />
                   </Link>
                 </motion.div>
                 
@@ -172,9 +173,9 @@ export default function Home({ darkMode }) {
                 >
                   <Link
                     to="/favorites"
-                    className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 lg:px-10 py-4 sm:py-5 bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 rounded-full text-white font-bold text-lg sm:text-xl border-2 border-white/30 hover:border-white/50 shadow-xl hover:shadow-2xl w-full sm:w-auto justify-center"
+                    className="group inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 lg:px-10 py-4 sm:py-5 bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 rounded-full text-white font-bold text-lg sm:text-xl border-2 border-white/30 hover:border-white/50 shadow-xl hover:shadow-2xl w-full sm:w-auto justify-center"
                   >
-                    <FaHeart className="text-xl sm:text-2xl" />
+                    <FaHeart className="text-xl sm:text-2xl group-hover:scale-110 group-hover:text-red-300 transition-all duration-300" />
                     My Favorites
                   </Link>
                 </motion.div>
@@ -296,12 +297,12 @@ export default function Home({ darkMode }) {
             <h2 className={`text-4xl md:text-6xl lg:text-7xl font-extrabold mb-8 leading-tight ${
               darkMode ? 'text-white' : 'text-gray-800'
             }`}>
-              Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">LocalTour</span>?
+              Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 animate-pulse">Desh Darshan</span>? ✨
             </h2>
             <p className={`text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed ${
               darkMode ? 'text-gray-300' : 'text-gray-600'
             }`}>
-              Experience India like never before with our comprehensive, user-friendly travel platform designed for modern explorers
+              🚀 Experience India like never before with our comprehensive, user-friendly travel platform designed for <span className="font-bold text-blue-500">modern explorers</span>
             </p>
           </motion.div>
 
@@ -375,12 +376,12 @@ export default function Home({ darkMode }) {
             <h2 className={`text-4xl md:text-6xl lg:text-7xl font-extrabold mb-8 leading-tight ${
               darkMode ? 'text-white' : 'text-gray-800'
             }`}>
-              Explore by <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600">Category</span>
+              🗺️ Explore by <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600">Category</span>
             </h2>
             <p className={`text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed ${
               darkMode ? 'text-gray-300' : 'text-gray-600'
             }`}>
-              Discover places that perfectly match your interests and travel style across India's diverse landscape
+              🎯 Discover places that perfectly match your interests and travel style across India's <span className="font-bold text-green-500">diverse landscape</span>
             </p>
           </motion.div>
 
@@ -424,6 +425,95 @@ export default function Home({ darkMode }) {
         </div>
       </section>
 
+      {/* Quick Access - Popular Destinations */}
+      <section className={`py-16 sm:py-20 lg:py-24 px-4 sm:px-6 ${
+        darkMode
+          ? 'bg-gradient-to-br from-gray-800 to-gray-900'
+          : 'bg-gradient-to-br from-gray-50 to-white'
+      }`}>
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full font-semibold mb-6 ${
+              darkMode 
+                ? 'bg-gradient-to-r from-orange-900/30 to-red-900/30 text-orange-300 border border-orange-700/30' 
+                : 'bg-gradient-to-r from-orange-100 to-red-100 text-orange-800'
+            }`}>
+              🔥 Trending Now
+            </div>
+            <h2 className={`text-4xl md:text-6xl font-bold mb-6 ${
+              darkMode ? 'text-white' : 'text-gray-800'
+            }`}>
+              🎆 Popular <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">Destinations</span>
+            </h2>
+            <p className={`text-xl max-w-3xl mx-auto ${
+              darkMode ? 'text-gray-300' : 'text-gray-600'
+            }`}>
+              ✨ Start your journey with these must-visit places loved by travelers worldwide
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { name: "Taj Mahal", location: "Agra, Uttar Pradesh", emoji: "🕌", color: "from-pink-500 to-rose-600" },
+              { name: "Kerala Backwaters", location: "Alleppey, Kerala", emoji: "🌴", color: "from-green-500 to-emerald-600" },
+              { name: "Golden Temple", location: "Amritsar, Punjab", emoji: "✨", color: "from-yellow-500 to-orange-600" },
+              { name: "Goa Beaches", location: "Goa", emoji: "🏖️", color: "from-blue-500 to-cyan-600" },
+              { name: "Rajasthan Palaces", location: "Jaipur, Rajasthan", emoji: "🏰", color: "from-purple-500 to-indigo-600" },
+              { name: "Himalayan Peaks", location: "Himachal Pradesh", emoji: "🏔️", color: "from-gray-500 to-slate-600" }
+            ].map((destination, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05, y: -10 }}
+                className={`group cursor-pointer rounded-3xl p-6 shadow-xl transition-all duration-300 border hover-lift ${
+                  darkMode
+                    ? 'bg-gray-700 border-gray-600 hover:border-gray-500'
+                    : 'bg-white border-gray-200 hover:border-gray-300'
+                }`}
+              >
+                <div className={`w-16 h-16 bg-gradient-to-br ${destination.color} rounded-2xl flex items-center justify-center mx-auto mb-4 text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  {destination.emoji}
+                </div>
+                <h3 className={`text-xl font-bold mb-2 text-center group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:${destination.color.replace('bg-gradient-to-br', 'from')} transition-all duration-300 ${
+                  darkMode ? 'text-white' : 'text-gray-800'
+                }`}>{destination.name}</h3>
+                <p className={`text-center text-sm ${
+                  darkMode ? 'text-gray-400' : 'text-gray-500'
+                }`}>{destination.location}</p>
+                <div className={`mt-4 w-8 h-1 bg-gradient-to-r ${destination.color} rounded-full mx-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-center mt-12"
+          >
+            <Link
+              to="/explore"
+              className={`group inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl ${
+                darkMode
+                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white'
+                  : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white'
+              }`}
+            >
+              <FaGlobe className="text-xl group-hover:rotate-12 transition-transform duration-300" />
+              Explore All Destinations
+              <FaArrowRight className="text-xl group-hover:translate-x-1 transition-transform duration-300" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
       {/* About This Site Section */}
       <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
@@ -436,12 +526,12 @@ export default function Home({ darkMode }) {
             <h2 className={`text-4xl md:text-6xl font-bold mb-6 ${
               darkMode ? 'text-white' : 'text-gray-800'
             }`}>
-              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">This Site</span>
+              💡 About <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Desh Darshan</span>
             </h2>
             <p className={`text-xl max-w-3xl mx-auto ${
               darkMode ? 'text-gray-300' : 'text-gray-600'
             }`}>
-              Your gateway to discovering the incredible diversity and beauty of India
+              🌟 Your gateway to discovering the incredible diversity and beauty of India
             </p>
           </motion.div>
 
@@ -462,15 +552,15 @@ export default function Home({ darkMode }) {
               <p className={`text-lg leading-relaxed mb-6 ${
                 darkMode ? 'text-gray-300' : 'text-gray-600'
               }`}>
-                LocalTour is dedicated to showcasing the rich cultural heritage, stunning landscapes,
+                🎯 Desh Darshan is dedicated to showcasing the rich cultural heritage, stunning landscapes,
                 and diverse attractions that make India truly incredible. We believe every traveler
                 should have access to comprehensive information about India's most beautiful destinations.
               </p>
               <p className={`text-lg leading-relaxed ${
                 darkMode ? 'text-gray-300' : 'text-gray-600'
               }`}>
-                From the snow-capped peaks of the Himalayas to the tropical beaches of the south,
-                from ancient temples to modern marvels, we curate the best experiences India has to offer.
+                🏔️ From the snow-capped peaks of the Himalayas to 🏖️ the tropical beaches of the south,
+                from 🏛️ ancient temples to 🏙️ modern marvels, we curate the best experiences India has to offer.
               </p>
             </motion.div>
 
@@ -496,7 +586,7 @@ export default function Home({ darkMode }) {
                 <p className={`${
                   darkMode ? 'text-gray-300' : 'text-gray-600'
                 }`}>
-                  Explore over 100 carefully selected destinations across all 28 states and 8 union territories of India.
+                  🗺️ Explore over <span className="font-bold text-blue-500">100 carefully selected destinations</span> across all 28 states and 8 union territories of India.
                 </p>
               </div>
 
@@ -516,7 +606,7 @@ export default function Home({ darkMode }) {
                 <p className={`${
                   darkMode ? 'text-gray-300' : 'text-gray-600'
                 }`}>
-                  All our content is completely free and accessible to everyone who wants to explore India's beauty.
+                  💝 All our content is <span className="font-bold text-green-500">completely free</span> and accessible to everyone who wants to explore India's beauty.
                 </p>
               </div>
 
@@ -536,7 +626,7 @@ export default function Home({ darkMode }) {
                 <p className={`${
                   darkMode ? 'text-gray-300' : 'text-gray-600'
                 }`}>
-                  Each destination features detailed descriptions, ratings, and practical travel information.
+                  ⭐ Each destination features <span className="font-bold text-purple-500">detailed descriptions</span>, ratings, and practical travel information.
                 </p>
               </div>
             </motion.div>
@@ -560,12 +650,12 @@ export default function Home({ darkMode }) {
             <h2 className={`text-4xl md:text-6xl font-bold mb-6 ${
               darkMode ? 'text-white' : 'text-gray-800'
             }`}>
-              What <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Travelers Say</span>
+              💬 What <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Travelers Say</span>
             </h2>
             <p className={`text-xl max-w-3xl mx-auto ${
               darkMode ? 'text-gray-300' : 'text-gray-600'
             }`}>
-              Join thousands of satisfied explorers who've discovered India with LocalTour
+              👥 Join thousands of satisfied explorers who've discovered India with <span className="font-bold text-blue-500">Desh Darshan</span>
             </p>
           </motion.div>
 
@@ -574,13 +664,13 @@ export default function Home({ darkMode }) {
               {
                 name: "Priya Sharma",
                 location: "Mumbai, India",
-                text: "LocalTour helped me discover hidden gems in my own country! The detailed information and audio guides made every trip memorable.",
+                text: "Desh Darshan helped me discover hidden gems in my own country! The detailed information and audio guides made every trip memorable.",
                 rating: 5
               },
               {
                 name: "David Johnson",
                 location: "London, UK",
-                text: "As a foreign tourist, LocalTour was invaluable. The comprehensive coverage and cultural insights made my India trip extraordinary.",
+                text: "As a foreign tourist, Desh Darshan was invaluable. The comprehensive coverage and cultural insights made my India trip extraordinary.",
                 rating: 5
               },
               {
@@ -655,12 +745,12 @@ export default function Home({ darkMode }) {
             <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${
               darkMode ? 'text-white' : 'text-gray-800'
             }`}>
-              Stay Updated with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">LocalTour</span>
+              📧 Stay Updated with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Desh Darshan</span>
             </h2>
             <p className={`text-xl mb-8 ${
               darkMode ? 'text-gray-300' : 'text-gray-600'
             }`}>
-              Get the latest travel guides, hidden gems, and exclusive content delivered to your inbox
+              📬 Get the latest travel guides, hidden gems, and exclusive content delivered to your inbox
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
@@ -722,8 +812,8 @@ export default function Home({ darkMode }) {
             </motion.div>
 
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-8 leading-tight">
-              Ready to Start Your
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-orange-400 to-red-400 mt-2">
+              🚀 Ready to Start Your
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-orange-400 to-red-400 mt-2 animate-bounce">
                 Epic Adventure?
               </span>
             </h2>

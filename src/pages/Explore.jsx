@@ -531,7 +531,7 @@ export default function Explore({ darkMode }) {
             ? "bg-gradient-to-br from-gray-800 via-purple-900 to-indigo-900"
             : "bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700"
         } text-white`}
-        style={{ zIndex: 1000 }}
+        style={{ zIndex: 1 }}
       >
         {/* Enhanced Animated Background Elements */}
         <div className="absolute inset-0">

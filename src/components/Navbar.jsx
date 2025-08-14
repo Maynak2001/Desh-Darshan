@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Map, Heart, Home, Sun, Moon } from "lucide-react";
+import { Menu, X, Map, Heart, Home, Sun, Moon, Info } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar({ darkMode, setDarkMode }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,6 +10,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
   const navItems = [
     { name: "Home", path: "/", icon: <Home size={18} /> },
     { name: "Map", path: "/explore", icon: <Map size={18} /> },
+    { name: "About", path: "/about", icon: <Info size={18} /> },
     { name: "Favorites", path: "/favorites", icon: <Heart size={18} /> },
   ];
 
@@ -113,63 +115,151 @@ export default function Navbar({ darkMode, setDarkMode }) {
           </button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className={`md:hidden transition-colors duration-300 ${
-            darkMode ? 'text-gray-300' : 'text-gray-800'
+        {/* Enhanced Mobile Menu Button with Animation */}
+        <motion.button
+          className={`md:hidden p-3 rounded-xl transition-all duration-300 border ${
+            darkMode 
+              ? 'text-gray-300 hover:text-white hover:bg-gray-700 border-gray-600' 
+              : 'text-gray-800 hover:text-blue-600 hover:bg-blue-50 border-gray-200'
           }`}
           onClick={() => setIsOpen(!isOpen)}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          animate={{ rotate: isOpen ? 90 : 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          <motion.div
+            animate={{ rotate: isOpen ? 180 : 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {isOpen ? <X size={26} /> : <Menu size={26} />}
+          </motion.div>
+        </motion.button>
       </div>
 
-      {/* Mobile Dropdown Menu */}
-      {isOpen && (
-        <div className={`md:hidden absolute left-0 right-0 top-full border-t shadow-lg transition-colors duration-300 ${
-          darkMode 
-            ? 'bg-gray-800 border-gray-700' 
-            : 'bg-white border-gray-100'
-        }`}>
-          <div className="py-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                onClick={() => setIsOpen(false)}
-                className={`flex items-center gap-3 px-6 py-4 text-sm font-medium transition-colors ${
-                  location.pathname === item.path 
-                    ? darkMode
-                      ? "text-blue-400 bg-blue-900/20 border-l-4 border-blue-600"
-                      : "text-blue-600 bg-blue-50 border-l-4 border-blue-600"
-                    : darkMode
-                      ? "text-gray-300 hover:bg-gray-700"
-                      : "text-gray-800 hover:bg-gray-50"
-                }`}
-              >
-                {item.icon}
-                {item.name}
-              </Link>
-            ))}
-            
-            {/* Mobile Dark Mode Toggle */}
-            <button
-              onClick={() => {
-                setDarkMode(!darkMode);
-                setIsOpen(false);
-              }}
-              className={`flex items-center gap-3 px-6 py-4 text-sm font-medium transition-colors w-full text-left ${
-                darkMode 
-                  ? 'text-yellow-400 hover:bg-gray-700' 
-                  : 'text-gray-600 hover:bg-gray-100'
-              }`}
+      {/* Enhanced Mobile Dropdown Menu with Animations */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0, y: -20 }}
+            animate={{ opacity: 1, height: "auto", y: 0 }}
+            exit={{ opacity: 0, height: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className={`md:hidden absolute left-0 right-0 top-full border-t shadow-2xl backdrop-blur-sm z-50 overflow-hidden ${
+              darkMode 
+                ? 'bg-gray-800/95 border-gray-700' 
+                : 'bg-white/95 border-gray-100'
+            }`}
+          >
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ delay: 0.1, duration: 0.2 }}
+              className="py-4 px-2"
             >
-              {darkMode ? <Sun size={18} /> : <Moon size={18} />}
-              {darkMode ? 'Light Mode' : 'Dark Mode'}
-            </button>
-          </div>
-        </div>
-      )}
+              {navItems.map((item, index) => (
+                <motion.div
+                  key={item.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ delay: index * 0.1, duration: 0.3 }}
+                >
+                  <Link
+                    to={item.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`flex items-center gap-4 mx-2 mb-2 px-6 py-5 text-lg font-medium rounded-2xl transition-all duration-300 transform hover:scale-105 active:scale-95 ${
+                      location.pathname === item.path 
+                        ? darkMode
+                          ? "text-white bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg border-2 border-blue-500"
+                          : "text-white bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg border-2 border-blue-500"
+                        : darkMode
+                          ? "text-gray-300 hover:text-white hover:bg-gray-700 border-2 border-transparent hover:border-gray-600"
+                          : "text-gray-800 hover:text-blue-600 hover:bg-blue-50 border-2 border-transparent hover:border-blue-200"
+                    }`}
+                  >
+                    <motion.div 
+                      className={`p-2 rounded-xl ${
+                        location.pathname === item.path
+                          ? 'bg-white/20'
+                          : darkMode
+                            ? 'bg-gray-600/50'
+                            : 'bg-gray-100'
+                      }`}
+                      whileHover={{ rotate: 5, scale: 1.1 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {React.cloneElement(item.icon, { size: 22 })}
+                    </motion.div>
+                    <span className="font-semibold">{item.name}</span>
+                    {location.pathname === item.path && (
+                      <motion.div 
+                        className="ml-auto"
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ delay: 0.2, type: "spring" }}
+                      >
+                        <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                      </motion.div>
+                    )}
+                  </Link>
+                </motion.div>
+              ))}
+              
+              {/* Enhanced Mobile Dark Mode Toggle */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ delay: navItems.length * 0.1, duration: 0.3 }}
+                className="border-t border-gray-200/20 mt-4 pt-4 mx-2"
+              >
+                <button
+                  onClick={() => {
+                    setDarkMode(!darkMode);
+                    setIsOpen(false);
+                  }}
+                  className={`flex items-center gap-4 w-full px-6 py-5 text-lg font-medium rounded-2xl transition-all duration-300 transform hover:scale-105 active:scale-95 border-2 ${
+                    darkMode 
+                      ? 'text-yellow-400 hover:text-yellow-300 hover:bg-yellow-900/20 border-transparent hover:border-yellow-600/50' 
+                      : 'text-blue-600 hover:text-blue-700 hover:bg-blue-50 border-transparent hover:border-blue-200'
+                  }`}
+                >
+                  <motion.div 
+                    className={`p-2 rounded-xl ${
+                      darkMode
+                        ? 'bg-yellow-900/30'
+                        : 'bg-blue-100'
+                    }`}
+                    whileHover={{ rotate: 180 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {darkMode ? <Sun size={22} /> : <Moon size={22} />}
+                  </motion.div>
+                  <span className="font-semibold">
+                    {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
+                  </span>
+                  <div className="ml-auto">
+                    <motion.div 
+                      className={`w-12 h-6 rounded-full transition-colors duration-300 relative ${
+                        darkMode ? 'bg-yellow-600' : 'bg-gray-300'
+                      }`}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <motion.div 
+                        className="absolute top-1 w-4 h-4 rounded-full bg-white"
+                        animate={{ x: darkMode ? 28 : 4 }}
+                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                      />
+                    </motion.div>
+                  </div>
+                </button>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
