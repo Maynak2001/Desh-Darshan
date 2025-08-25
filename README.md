@@ -1,6 +1,6 @@
 # 🌏 DeshDarshan
 
-**DeshDarshan** is a modern web app built with **Next.js** that showcases the cultural and travel richness of India.  
+**DeshDarshan** is a modern web app built with **React.js** that showcases the cultural and travel richness of India.  
 Explore destinations, traditions, and heritage in a simple, elegant, and responsive interface.  
 
 🔗 Live Demo: [deshdarshan.vercel.app](https://deshdarshan.vercel.app)
@@ -9,8 +9,8 @@ Explore destinations, traditions, and heritage in a simple, elegant, and respons
 
 ## 🚀 Features
 
-- ⚡ Built with **Next.js** for blazing fast performance  
-- 🎨 Responsive design with modern UI  
+- ⚡ Built with **React.js** for fast and dynamic UI  
+- 🎨 Responsive design with modern styling  
 - 📍 Explore Indian states and their cultural highlights  
 - 🌐 Deployed seamlessly on **Vercel**
 
@@ -31,9 +31,9 @@ npm install
 yarn install
 
 # 3️⃣ Start the development server
-npm run dev
+npm start
 # or
-yarn dev
+yarn start
 ```
 
 # Now, open your browser at http://localhost:3000 🌐
@@ -45,7 +45,7 @@ Each push to the `main` branch triggers an automatic deployment.
 If you want to deploy manually:
 - Connect the repository to Vercel  
 - Set the build command → npm run build  
-- Set the output directory → .next
+- Set the output directory → build
 
 # 🤝 Contributing
 Contributions are always welcome! 🎉
